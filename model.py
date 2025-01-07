@@ -3,7 +3,8 @@ from dataclasses import dataclass
 from datetime import date
 
 
-@dataclass(frozen=True)
+# @dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class OrderLine:
     orderid: str
     sku: str  # единица складского учета (stock-keeping unit)
@@ -21,13 +22,13 @@ class Batch:
     def __repr__(self):
         return f"<Batch {self.reference}>"
 
-    # def __eq__(self, other):
-    #     if not isinstance(other, Batch):
-    #         return False
-    #     return other.reference == self.reference
+    def __eq__(self, other):
+        if not isinstance(other, Batch):
+            return False
+        return other.reference == self.reference
 
-    # def __hash__(self):
-    #     return hash(self.reference)
+    def __hash__(self):
+        return hash(self.reference)
 
     def __gt__(self, other):
         if self.eta is None:
