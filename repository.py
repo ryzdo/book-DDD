@@ -22,8 +22,6 @@ class SqlAlchemyRepository(AbstractRepository):
         self.session.add(batch)
 
     def get(self, reference):
-        print(select(model.Batch).filter_by())
-        print(select(model.Batch).where(model.Batch.reference == reference))
         # return self.session.query(model.Batch).filter_by(reference).one()
         return self.session.scalars(
             select(model.Batch).where(model.Batch.reference == reference)
