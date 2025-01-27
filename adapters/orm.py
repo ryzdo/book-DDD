@@ -3,7 +3,7 @@ from sqlalchemy import Table, Column, Integer, String, Date, ForeignKey
 # from sqlalchemy.orm import mapper  #  не поддерживается в SQLAlchemy 2.0
 from sqlalchemy.orm import registry, relationship
 
-import model
+import domain.model as model
 
 
 # metadata = MetaData()  #  не поддерживается в SQLAlchemy 2.0

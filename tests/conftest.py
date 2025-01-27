@@ -8,7 +8,7 @@ from sqlalchemy.exc import OperationalError
 from sqlalchemy import text
 
 # from orm import metadata  #  не поддерживается в SQLAlchemy 2.0
-from orm import start_mappers, mapper_registry
+from adapters.orm import start_mappers, mapper_registry
 import config
 import time
 import requests
@@ -110,6 +110,6 @@ def add_stock(postgres_session):
 
 @pytest.fixture
 def restart_api():
-    (Path(__file__).parent / "flask_app.py").touch()
+    (Path(__file__).parent / "../entrypoints/flask_app.py").touch()
     time.sleep(0.5)
     wait_for_webapp_to_come_up()

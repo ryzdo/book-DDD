@@ -1,7 +1,7 @@
 # these will speed up builds, for docker-compose >= 1.25
 export COMPOSE_DOCKER_CLI_BUILD=1
 export DOCKER_BUILDKIT=1
-export FLASK_APP=flask_app.py
+export FLASK_APP=entrypoints/flask_app.py
 
 all: down build up test
 

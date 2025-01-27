@@ -1,4 +1,4 @@
-import model
+import domain.model as model
 
 from sqlalchemy import select, text
 
