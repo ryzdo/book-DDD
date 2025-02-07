@@ -1,6 +1,5 @@
 from datetime import date, timedelta
 import adapters.repository as repository
-import domain.model as model
 import service_layer.services as services
 import pytest
 
